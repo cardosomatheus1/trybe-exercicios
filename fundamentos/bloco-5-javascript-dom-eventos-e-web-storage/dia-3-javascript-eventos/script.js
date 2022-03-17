@@ -124,3 +124,59 @@ dia.addEventListener('mouseout',function(event){
 }
 dayZoom()
 dayOutZoom()
+
+function tarefa(task){
+    let minhasTarefas = document.querySelector('.my-tasks')
+    let tarefas = document.createElement('span')
+    tarefas.innerText = task
+    minhasTarefas.appendChild(tarefas)
+}
+tarefa("Cozinhar")
+    
+
+function corTask(cor){
+    let minhasTarefas1 = document.querySelector('.my-tasks')
+    let legendaCor = document.createElement('div')
+    legendaCor.classList = "task"
+    legendaCor.style.backgroundColor = cor
+    minhasTarefas1.appendChild(legendaCor)
+
+}
+corTask("green")
+
+function selecionarTask(){
+
+    let myTasks = document.querySelector('.task');
+
+    myTasks.addEventListener('click', function(event) {
+        if(myTasks.className === 'task'){
+            myTasks.classList = 'task selected'
+        }
+        else{
+            myTasks.className = 'task'
+        }
+console.log(document.querySelector('.task'))
+
+})
+}
+
+selecionarTask()
+
+
+ function clickCor(){
+ let tasks = document.querySelector('.task')
+ let days1 = document.querySelector('#days')
+ let colorTask = tasks.style.backgroundColor
+
+days1.addEventListener('click', function(event){
+    
+    if (tasks.className === "task selected" && event.target.style.color !== colorTask){
+        event.target.style.color = colorTask
+    }
+    else{
+        event.target.style.color = 'rgb(119,119,119)'
+    }
+ })
+}
+clickCor()
+
