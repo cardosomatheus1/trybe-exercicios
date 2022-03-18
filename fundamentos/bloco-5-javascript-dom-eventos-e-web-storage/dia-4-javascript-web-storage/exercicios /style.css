@@ -1,0 +1,14 @@
+#text{
+    width: 65%;
+    float: left;
+}
+#forms{
+display:inline-block;
+width: 30%;
+border-width: 1px;
+border-style: solid;
+padding: 10px;
+background-color: rgb(220,220,220);
+margin: 20px;
+top: 0px;
+}
