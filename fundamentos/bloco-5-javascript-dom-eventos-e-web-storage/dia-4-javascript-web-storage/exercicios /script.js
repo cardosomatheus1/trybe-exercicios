@@ -1,3 +1,4 @@
+window.onload = function(){
 const forms = document.getElementById("forms");
 function addForms() {
   const forms = document.getElementById("forms");
@@ -47,6 +48,7 @@ function addOpcoes(tipo, cor, valor) {
   checkbox.type = "radio";
   checkbox.name = tipo;
   checkbox.value = cor;
+  checkbox.className = "bola"
   checkbox.style.display = "inline-block";
   checkbox.style.marginRight = "10px"
   formu1.appendChild(checkbox);
@@ -101,19 +103,70 @@ addOpcoes("lineHeight", "30px", "lineHeight");
 
 addLabel("Tipo da fonte", "FontFamily");
 texto("Arial", "FontFamily")
-addOpcoes("FontFamily", "Arial", "FontFamily");
+addOpcoes("fontFamily", "arial", "FontFamily");
 texto("Verdana", "FontFamily")
-addOpcoes("FontFamily", "Verdana, sans-serif", "FontFamily");
+addOpcoes("fontFamily", "verdana, sans-serif", "FontFamily");
 texto("Times", "FontFamily")
-addOpcoes("FontFamily", "Times, Times New Roman, serif", "FontFamily");
+addOpcoes("fontFamily", "times, times new roman, serif", "FontFamily");
 texto("Georgia", "FontFamily")
-addOpcoes("FontFamily", "Georgia, serif", "FontFamily");
+addOpcoes("fontFamily", "georgia, serif", "FontFamily");
 texto("Luminari", "FontFamily")
-addOpcoes("FontFamily", "Luminari, fantasy", "FontFamily");
+addOpcoes("fontFamily", "luminari, fantasy", "FontFamily");
 
+  
+  
+let texto1 =document.getElementById("texto") 
 
-    let background = document.querySelector('#backgroundColor')
-    let texto1 =document.getElementById("texto")
-    let let2 = document.getElementsByName("backgroundColor")
-    let let3 =let2.name
-    console.log(let2)
+function elementChange(numero){
+let background0 = document.querySelectorAll("input")[numero]
+let valorPropriedade = background0.value
+let nomePropriedade = background0.name
+if(nomePropriedade === "backgroundColor")
+background0.addEventListener('click', function(){
+  texto1.style.backgroundColor = valorPropriedade
+  localStorage.setItem("background-color",valorPropriedade)
+})
+else if(nomePropriedade === "color"){
+  background0.addEventListener('click', function(){
+  texto1.style.color = valorPropriedade
+  localStorage.setItem("color",valorPropriedade)
+})
+}
+else if(nomePropriedade === "fontSize"){
+  background0.addEventListener('click', function(){
+  texto1.style.fontSize = valorPropriedade
+  localStorage.setItem("font-size",valorPropriedade)
+})
+}
+else if(nomePropriedade === "lineHeight"){
+  background0.addEventListener('click', function(){
+  texto1.style.lineHeight = valorPropriedade
+  localStorage.setItem("line-height",valorPropriedade)
+})
+}
+else if(nomePropriedade === "fontFamily"){
+  background0.addEventListener('click', function(){
+  texto1.style.fontFamily = valorPropriedade
+  localStorage.setItem("font-family",valorPropriedade)
+})
+}
+}
+let background4 = document.getElementsByTagName("input")
+let quantidade = background4.length
+for(i=0;i<quantidade;i++){
+  elementChange(i)
+}
+
+let savedBackgroundColor = localStorage.getItem("background-color")
+let savedColor = localStorage.getItem("color")
+let savedFontSize = localStorage.getItem("font-size")
+let savedLineHeight = localStorage.getItem("line-height")
+let savedFontFamily = localStorage.getItem("font-family")
+
+texto1.style.backgroundColor =savedBackgroundColor
+texto1.style.color = savedColor
+texto1.style.fontSize = savedFontSize
+texto1.style.lineHeight = savedLineHeight
+texto1.style.fontFamily = savedFontFamily
+
+}
