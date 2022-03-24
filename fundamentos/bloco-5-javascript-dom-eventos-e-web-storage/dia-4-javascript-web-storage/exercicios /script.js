@@ -170,3 +170,4 @@ texto1.style.lineHeight = savedLineHeight
 texto1.style.fontFamily = savedFontFamily
 
 }
+
